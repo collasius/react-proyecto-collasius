@@ -1,12 +1,11 @@
 import './Items.css'
 import React from 'react'
 
-const Items = (props) => {
-  const {titulo} = props;
+const Items = ({titulo}) => {
 
   return (
     <li className='items'> 
-      {titulo}
+      <a href="">{titulo}</a>
     </li>
   )
 }

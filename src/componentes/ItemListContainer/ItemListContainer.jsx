@@ -1,8 +1,11 @@
 import React from 'react'
+import './ItemListContainer.css'
 
 const ItemListContainer = () => {
   return (
-    <div>ItemListContainer</div>
+    <section className='Contenido'>
+      <h1>Bienvenidos a Meli</h1>
+    </section>
   )
 }
 

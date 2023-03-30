@@ -1,0 +1,18 @@
+a {
+    text-decoration: none;
+    color: rgb(255, 255, 255);
+    padding: 2px;
+    transition-duration: 0.2s;
+}
+
+a:hover{
+    color:rgb(62, 62, 62);
+}
+
+li{
+    transition-duration: 0.2s;
+}
+
+li:hover{
+    transform: scale(1.2);
+}
