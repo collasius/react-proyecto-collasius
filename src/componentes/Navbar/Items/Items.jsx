@@ -1,8 +1,13 @@
+import './Items.css'
 import React from 'react'
 
-const Items = () => {
+const Items = (props) => {
+  const {titulo} = props;
+
   return (
-    <div>Items</div>
+    <li className='items'> 
+      {titulo}
+    </li>
   )
 }
 
