@@ -5,15 +5,13 @@ import './Navbar.css'
 import Logo from'./z-logo-inicio.png'
 
 
-const Navbar = (props) => {
+const Navbar = () => {
   // nombres de titulos en navbar
   const nameOptions = ["Agua","Tierra","Fuego"];
 
   return (
     <div className='Navbar'>
-      <li>
         <img className='LogoInicio' src= {Logo} alt="logo"/>
-      </li>
       <NavbarItemsComponent nameOption={nameOptions}/>
 
       <Cartwidget/>

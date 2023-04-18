@@ -1,24 +1,8 @@
-ul {
-    list-style-type: none;
-}
-
-ul {
-    display:flex;
-    flex-direction: row;
-    align-items: center;
-}
-
-li{
-    margin: 5px;
-    padding-left: 20px;
-    padding-right: 20px;
-}
-
 .Navbar{
     display:flex;
     flex-direction: row;
     align-items: center;
-    justify-content: space-around;
+    justify-content: space-evenly;
     position:fixed;
     width: 100%;
     background-color: rgba(0, 0, 0, 0.648);
@@ -32,4 +16,9 @@ li{
     height: 25px;
     width: 25px;
     cursor: pointer;
+    transition-duration: 0.2s;
+}
+
+.LogoInicio:hover{
+    transform: scale(1.2);
 }

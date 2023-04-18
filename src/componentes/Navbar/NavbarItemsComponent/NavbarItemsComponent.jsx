@@ -1,5 +1,6 @@
 import React from 'react'
 import NavbarItems from '../NavbarItems/NavbarItems'
+import './NavbarItemsComponent.css'
 
 
 const NavbarItemsComponent = (props) => {
@@ -7,7 +8,7 @@ const NavbarItemsComponent = (props) => {
     const {nameOption} = props;
 
   return (
-    <ul>
+    <ul >
         {nameOption.map((nameItem,index) => {
           return(<NavbarItems key={index} titulo = {nameItem} />)
         })}
