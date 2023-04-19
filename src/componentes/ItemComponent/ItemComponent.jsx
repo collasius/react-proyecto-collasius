@@ -2,7 +2,8 @@ import React , {Fragment, useState} from 'react'
 
 const ItemComponent = (props) => {
 
-    const {titulo,urlImage,descripcion,precio,handlerUpdate} = props;
+    const {data,handlerUpdate} = props;
+    const {titulo,urlImage,descripcion,precio} = data;
     const [stock, setStock] = useState(10);
 
     const handlerActionAdd = () => {
