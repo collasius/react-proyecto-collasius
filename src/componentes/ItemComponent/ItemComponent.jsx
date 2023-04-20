@@ -1,6 +1,6 @@
+import "./ItemComponent.css"
 import React , {Fragment, useState} from 'react'
 import { NavLink } from 'react-router-dom';
-import { routes } from '../../routes';
 
 const ItemComponent = (props) => {
 
@@ -21,17 +21,26 @@ const ItemComponent = (props) => {
 
   return (
     <Fragment>
-        <p>{showShortValue(title)}</p>
-        <img src={image} alt=""/>
-        <p>{showShortValue(description)}</p>
-        <NavLink to={`/products/detail/${idProduct}`}>
-            <button onClick={handlerActionAdd}>
-                + info
-            </button>
-        </NavLink>
-        <p>${price}</p>
-        <p>{category}</p>
-        <button onClick={handlerActionAdd}>Agregar</button>
+      <div className="cardProducto">
+      <NavLink className="NavLink-custom" to={`/products/detail/${idProduct}`}>
+        <div>
+          <p className="titulo">{showShortValue(title)}</p>
+        </div>
+      </NavLink>
+        <img className='imgProducto' src={image} alt={title}/>
+        <div className="subCardProducto">
+          <p className="precio">${price}</p>
+          <p className="descripcion" >{showShortValue(description) }
+            <NavLink to={`/products/detail/${idProduct}`}>
+                <button className="btnInfo" onClick={handlerActionAdd}>
+                    + info
+                </button>
+            </NavLink>
+          </p>
+          <button className="btnAgregar" onClick={handlerActionAdd}>Agregar al carrito</button>
+        </div>
+      </div>
+
     </Fragment>
 )}
 

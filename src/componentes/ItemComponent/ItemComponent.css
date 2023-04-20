@@ -1,0 +1,86 @@
+.cardProducto{
+    width: 300px;
+    height: 400px;
+    margin: 20px;
+    background-color: rgb(255, 255, 255);
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.imgProducto{
+    max-width: 200px;
+    overflow:hidden;
+    border-radius: 10px;
+}
+.titulo{
+    text-align: center;
+    color: white;
+    font-weight: 500;
+    font-size: 20px;
+    background-color: rgb(57, 57, 57);
+    border-radius: 10px;
+    margin: 10px;
+    padding: 10px;
+    transition-duration: 0.1s;
+}
+.titulo:hover{
+    transform: scale(1.1);
+}
+
+.subCardProducto{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    align-items: center;
+    margin: 10px;
+}
+.descripcion{
+    color: white;
+    font-weight: 300;
+    font-size: 15px;
+    background-color: rgb(126, 126, 126);
+    border-radius: 10px;
+    margin: 10px;
+    padding: 10px;
+}
+
+.btnInfo{
+    font-size: 15px;
+    cursor: pointer;
+    text-decoration: none;
+    border: none;
+    background-color: none;
+}
+
+.precio{
+    font-size: 20px;
+    font-weight: 500;
+    background-color: rgb(217, 217, 217);
+    border-radius: 20px;
+    padding: 10px;
+}
+
+.btnAgregar{
+    background-color: rgb(72, 111, 255);
+    font-size: 15px;
+    font-weight: 500;
+    color:white;
+    border: none;
+    border-radius: 20px;
+    padding: 10px;
+    cursor: pointer;
+    transition-duration: 0.1s;
+}
+.btnAgregar:hover{
+    background-color: rgb(0, 55, 255);
+    transform: scale(1.1);
+}
+
+.NavLink-custom {
+    text-decoration: none;
+  }

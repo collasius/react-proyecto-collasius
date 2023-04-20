@@ -2,11 +2,11 @@ import './VistaDeProductos.css'
 import React , {Fragment, useState, useEffect} from 'react'
 import ItemComponent from '../componentes/ItemComponent/ItemComponent'
 import useFetch from '../utils/useFetch'
-const BASE_URL ="https://fakestoreapi.com/products"
+const BASE_URL ="https://fakestoreapi.com/products/category/electronics"
 
 
 
-const VistaDeProductos = (props) => {
+const Electronica = (props) => {
 
   const [count, setCount] = useState(0);
   const [data,loading] = useFetch(BASE_URL);
@@ -28,4 +28,4 @@ const VistaDeProductos = (props) => {
   )
 }
 
-export default VistaDeProductos
+export default Electronica

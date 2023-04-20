@@ -1,14 +1,15 @@
+import './VistaDeProductos.css'
 import React , {Fragment, useState, useEffect} from 'react'
-import './ItemListContainer.css'
-import ItemComponent from '../ItemComponent/ItemComponent'
-import useFetch from '../../utils/useFetch'
-const BASE_URL ="https://jsonplaceholder.typicode.com/albums/1/photos"
+import ItemComponent from '../componentes/ItemComponent/ItemComponent'
+import useFetch from '../utils/useFetch'
+const BASE_URL ="https://fakestoreapi.com/products/category/women's%20clothing"
 
 
-const ItemListContainer = (props) => {
+
+const RopaParaMujeres = (props) => {
 
   const [count, setCount] = useState(0);
-  const {data,loading} = useFetch(BASE_URL);
+  const [data,loading] = useFetch(BASE_URL);
 
   const updateCount = () => {
     setCount (count +1);
@@ -17,8 +18,8 @@ const ItemListContainer = (props) => {
   return (
 
     <Fragment>
+      <h1>Total: {count}</h1>
       <div className='Contenido'>
-        <h1>Total: {count}</h1>
         {loading? (<h1>Cargando...</h1>) : (data.map((item,index) => {
       return <ItemComponent key={index} data={item} handlerUpdate={updateCount} />;}))
       }
@@ -27,4 +28,4 @@ const ItemListContainer = (props) => {
   )
 }
 
-export default ItemListContainer
+export default RopaParaMujeres

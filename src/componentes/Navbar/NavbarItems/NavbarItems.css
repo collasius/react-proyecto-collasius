@@ -12,8 +12,15 @@ span:hover{
 
 li{
     transition-duration: 0.2s;
+    list-style-type: none;
+    margin-left: 20px;
+    margin-right: 20px;
 }
 
 li:hover{
     transform: scale(1.2);
+}
+
+.NavLink-custom{
+    text-decoration: none;
 }
