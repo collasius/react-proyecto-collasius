@@ -18,7 +18,6 @@ const VistaDeProductos = (props) => {
   return (
 
     <Fragment>
-      <h1>Total: {count}</h1>
       <div className='Contenido'>
         {loading? (<h1>Cargando...</h1>) : (data.map((item,index) => {
       return <ItemComponent key={index} data={item} handlerUpdate={handleUpdateCount} />;}))
