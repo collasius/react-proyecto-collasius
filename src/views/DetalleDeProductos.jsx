@@ -1,3 +1,4 @@
+import './DetalleDeProductos.css'
 import React, {Fragment} from 'react'
 import { useNavigate, useParams } from 'react-router-dom'
 import useFetch from '../utils/useFetch'
@@ -18,16 +19,23 @@ const DetalleDeProductos = () => {
 
   return (
     <Fragment>
-        <div>
-            <div>{title}</div>
-            <div>
-                <img src={image} alt=""/>
-            </div>
-            <div>{description}</div>
-            <div>{category}</div>
-            <div>{price}</div>
-            <button onClick={addBtnAction} >Comprar</button>
+        <div className='seccionDetalle'>
+                <div className='cardDetalle'>
+                    <div className='contenedorImg'>
+                        <img className='imagenDetalle' src={image} alt=""/>
+                        <div className='categoriaDetalle'>{category}</div>
+                    </div>
+                    <div className='detalles-1'>
+                        <p className='tituloDetalle'>{title}</p>
+                        <p className='descripcionDetalle'>{description}</p>
+                        <div className='precio-btn'>
+                            <p className='precioDetalle'>Precio: ${price}</p>
+                            <button className='btn-detalle-comprar' onClick={addBtnAction} >Comprar</button>
+                        </div>
+                    </div>
+                </div>
         </div>
+
     </Fragment>
   )
 }

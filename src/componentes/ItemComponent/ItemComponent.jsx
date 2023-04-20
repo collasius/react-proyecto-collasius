@@ -6,12 +6,14 @@ const ItemComponent = (props) => {
 
     const {data,handlerUpdate} = props;
     const { id: idProduct, title, image, description, price, stock, category } = data;
-    const [_stock, _setStock] = useState(stock || 0);
+    const [_stock, _setStock] = useState(stock || 10);
 
     const handlerActionAdd = () => {
       if (_stock > 0) {
         _setStock(_stock - 1);
         handlerUpdate();
+      }else{
+        alert("Sin stock suficiente")
       }
     };
   
