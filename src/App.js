@@ -1,3 +1,4 @@
+import React, { useState } from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import './App.css';
 import Navbar from './componentes/Navbar/Navbar';
@@ -8,9 +9,17 @@ import RopaParaMujeres from './views/RopaParaMujeres'
 import Joyeria from './views/Joyeria'
 import Electronica from './views/Electronica'
 import {routes} from "./routes";
+import { GeneralProvider } from "./context/GeneralContext";
 
 function App() {
+  const [counter, setCounter] = useState(0);
+
+  const updateCounter = () => {
+    setCounter(counter + 1);
+  };
+
   return (
+  <GeneralProvider>
     <BrowserRouter>
       <Navbar />
 
@@ -25,6 +34,8 @@ function App() {
 
       </Routes>
     </BrowserRouter>
+  </GeneralProvider>
+
   );
 }
 

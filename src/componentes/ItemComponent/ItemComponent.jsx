@@ -1,18 +1,19 @@
 import "./ItemComponent.css"
-import React , {Fragment, useState} from 'react'
+import React, { Fragment, useState, useContext } from 'react';
 import { NavLink } from 'react-router-dom';
+import GeneralContext from "../../context/GeneralContext";
 
 const ItemComponent = (props) => {
+  const { data } = props;
+  const { id: idProduct, title, image, description, price, stock } = data;
+  const [_stock, _setStock] = useState(stock || 10);
+  const { updateCounter } = useContext(GeneralContext);
 
-    const {data,handlerUpdate} = props;
-    const { id: idProduct, title, image, description, price, stock, category } = data;
-    const [_stock, _setStock] = useState(stock || 10);
-
-    const handlerActionAdd = () => {
-      if (_stock > 0) {
-        _setStock(_stock - 1);
-        handlerUpdate();
-      }else{
+  const handlerActionAdd = () => {
+    if (_stock > 0) {
+      _setStock(_stock - 1);
+      updateCounter();
+    }else{
         alert("Sin stock suficiente")
       }
     };
