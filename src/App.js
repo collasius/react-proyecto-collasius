@@ -1,18 +1,24 @@
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import './App.css';
-import { Fragment } from 'react'
 import Navbar from './componentes/Navbar/Navbar';
-import ItemListContainer from './componentes/ItemListContainer/ItemListContainer';
-
+import VistaDeProductos from './views/VistaDeProductos';
+import AcercaDe from './views/AcercaDe';
+import DetalleDeProductos from './views/DetalleDeProductos';
+import {routes} from "./routes";
 
 function App() {
   return (
-    <Fragment>
+    <BrowserRouter>
+      <Navbar />
 
-      <Navbar/>
+      <Routes className="seccion">
 
-      <ItemListContainer/>
+        <Route path={routes.index} element={<VistaDeProductos/>}/>
+        <Route path={routes.AcercaDe} element={<AcercaDe/>}/>
+        <Route path="/products/detail/:idProduct" element={<DetalleDeProductos/>}/>
 
-    </Fragment>
+      </Routes>
+    </BrowserRouter>
   );
 }
 

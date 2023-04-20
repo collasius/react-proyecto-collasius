@@ -1,14 +1,14 @@
 import React , {Fragment, useState, useEffect} from 'react'
-import './ItemListContainer.css'
-import ItemComponent from '../ItemComponent/ItemComponent'
-import useFetch from '../../utils/useFetch'
-const BASE_URL ="https://jsonplaceholder.typicode.com/albums/1/photos"
+import '../componentes/ItemListContainer/ItemListContainer'
+import ItemComponent from '../componentes/ItemComponent/ItemComponent'
+import useFetch from '../utils/useFetch'
+const BASE_URL ="https://fakestoreapi.com/products"
 
 
-const ItemListContainer = (props) => {
+const VistaDeProductos = (props) => {
 
   const [count, setCount] = useState(0);
-  const {data,loading} = useFetch(BASE_URL);
+  const [data,loading] = useFetch(BASE_URL);
 
   const updateCount = () => {
     setCount (count +1);
@@ -27,4 +27,4 @@ const ItemListContainer = (props) => {
   )
 }
 
-export default ItemListContainer
+export default VistaDeProductos

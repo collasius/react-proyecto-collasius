@@ -9,7 +9,6 @@
     backdrop-filter: blur(10px);
     z-index: 20000;
     height: 50px;
-    margin-top: -50px;
 }
 
 .LogoInicio{
