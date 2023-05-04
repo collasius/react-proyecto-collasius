@@ -9,17 +9,25 @@ import RopaParaMujeres from './views/RopaParaMujeres'
 import Joyeria from './views/Joyeria'
 import Electronica from './views/Electronica'
 import {routes} from "./routes";
-import { GeneralProvider } from "./context/GeneralContext";
+import GeneralContext from "./context/GeneralContext";
+import ItemFormView from './views/ItemFormView';
+import DetalleDeCarrito from './views/DetalleDeCarrito';
 
 function App() {
-  const [counter, setCounter] = useState(0);
+  const [car, setCar] = useState([]);
 
-  const updateCounter = () => {
-    setCounter(counter + 1);
+  const addToCar = (item) => {
+    setCar([...car,item]);
   };
 
+  const removeToCar = (item) => {
+    const newArray = car.filter(_item => _item.id !== item.id);
+    setCar(newArray)
+  };
+
+
   return (
-  <GeneralProvider>
+  <GeneralContext.Provider value={{addToCar, car, removeToCar}}>
     <BrowserRouter>
       <Navbar />
 
@@ -32,9 +40,11 @@ function App() {
         <Route path={routes.Joyeria} element={<Joyeria/>}/>
         <Route path={routes.Electronica} element={<Electronica/>}/>
 
+        <Route path='/eventos'element={<ItemFormView/>}></Route>
+        <Route path={routes.Carrito}element={<DetalleDeCarrito/>}></Route>
       </Routes>
     </BrowserRouter>
-  </GeneralProvider>
+  </GeneralContext.Provider>
 
   );
 }

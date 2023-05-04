@@ -7,12 +7,12 @@ const ItemComponent = (props) => {
   const { data } = props;
   const { id: idProduct, title, image, description, price, stock } = data;
   const [_stock, _setStock] = useState(stock || 10);
-  const { updateCounter } = useContext(GeneralContext);
+  const { addToCar, removeToCar } = useContext(GeneralContext);
 
   const handlerActionAdd = () => {
     if (_stock > 0) {
       _setStock(_stock - 1);
-      updateCounter();
+      addToCar(data);
     }else{
         alert("Sin stock suficiente")
       }
@@ -21,6 +21,10 @@ const ItemComponent = (props) => {
     const showShortValue = (value = "", lengthMax = 45) => {
       return value.length > lengthMax ? value.substring(0, lengthMax).concat(" ...") : value;
     };
+
+    const removerItem = () => {
+      removeToCar(data);
+    }
 
   return (
     <Fragment>
@@ -41,6 +45,7 @@ const ItemComponent = (props) => {
             </NavLink>
           </p>
           <button className="btnAgregar" onClick={handlerActionAdd}>Agregar al carrito</button>
+          <button className="btnAgregar" onClick={removerItem}>Remover</button>
         </div>
       </div>
 

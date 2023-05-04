@@ -1,21 +1,22 @@
 import './DetalleDeProductos.css'
-import React, {Fragment} from 'react'
-import { useNavigate, useParams } from 'react-router-dom'
+import React, {Fragment,useContext} from 'react'
+import { useParams } from 'react-router-dom'
 import useFetch from '../utils/useFetch'
+import GeneralContext from '../context/GeneralContext'
 
 const BASE_URL ="https://fakestoreapi.com/products"
 
 const DetalleDeProductos = () => {
     const { idProduct } = useParams();
-    const navigator = useNavigate();
+    const {addToCar} = useContext(GeneralContext);
   
     const [data] = useFetch(`${BASE_URL}/${idProduct}`);
+    const { title, image, description, price, category, } = data;
 
     const addBtnAction = () => {
-        navigator("/")
-    }
+          addToCar(data)
+        };
   
-    const { title, image, description, price, category } = data;
 
   return (
     <Fragment>
@@ -30,7 +31,7 @@ const DetalleDeProductos = () => {
                         <p className='descripcionDetalle'>{description}</p>
                         <div className='precio-btn'>
                             <p className='precioDetalle'>Precio: ${price}</p>
-                            <button className='btn-detalle-comprar' onClick={addBtnAction} >Comprar</button>
+                            <button className='btn-detalle-comprar' onClick={addBtnAction} >Agregar al Carrito</button>
                         </div>
                     </div>
                 </div>
