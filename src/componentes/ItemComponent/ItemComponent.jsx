@@ -4,7 +4,7 @@ import { NavLink } from 'react-router-dom';
 import GeneralContext from "../../context/GeneralContext";
 
 const ItemComponent = (props) => {
-  const { data } = props;
+  const { data, mostrarBtnRemover, mostrarBtnAgregar } = props;
   const { id: idProduct, title, image, description, price, stock } = data;
   const [_stock, _setStock] = useState(stock || 10);
   const { addToCar, removeToCar } = useContext(GeneralContext);
@@ -44,8 +44,14 @@ const ItemComponent = (props) => {
                 </button>
             </NavLink>
           </p>
-          <button className="btnAgregar" onClick={handlerActionAdd}>Agregar al carrito</button>
-          <button className="btnAgregar" onClick={removerItem}>Remover</button>
+
+          {mostrarBtnAgregar ? (
+            <button className="btnAgregar" onClick={handlerActionAdd}>Agregar al carrito</button>
+          ):( "")}
+          {mostrarBtnRemover ? (
+            <button className="btnQuitar" onClick={removerItem}>X</button>
+          ):( "")}
+
         </div>
       </div>
 

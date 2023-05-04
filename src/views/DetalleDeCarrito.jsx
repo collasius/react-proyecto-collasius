@@ -11,9 +11,11 @@ const DetalleDeCarrito = () => {
 
         <h2>Detalle del Carrito:</h2>
         <div className='contenedorCarrito'>
-        {car.map((item,index) => (
-            <ItemComponent key={index}data={item}/>
-        ))}
+          {car.length === 0 ? ( <h2>Carrito Vacio</h2>) : (
+            car.map((item,index) => (
+              <ItemComponent mostrarBtnRemover={true} mostrarBtnAgregar={false} key={index}data={item}/>
+            ))
+          )}
         </div>
     </div>
     </Fragment>

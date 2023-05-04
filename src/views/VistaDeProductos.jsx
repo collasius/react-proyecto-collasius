@@ -20,7 +20,7 @@ const VistaDeProductos = (props) => {
     <Fragment>
       <div className='Contenido'>
         {loading? (<h1>Cargando...</h1>) : (data.map((item,index) => {
-      return <ItemComponent key={index} data={item} handlerUpdate={handleUpdateCount} />;}))
+      return <ItemComponent mostrarBtnRemover={false} mostrarBtnAgregar={true} key={index} data={item} handlerUpdate={handleUpdateCount} />;}))
       }
       </div>
     </Fragment>
