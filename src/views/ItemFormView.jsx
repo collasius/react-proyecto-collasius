@@ -1,56 +1,60 @@
-import React, { useState } from 'react'
-import InputComponent from '../componentes/Navbar/InputComponent';
+import React, { useEffect, useState, useMemo, useCallback} from 'react'
+import ListaDeUsuarios from "../componentes/ListaDeUsuarios"
+import './ItemFormView.css'
+
+const estadoInicial = [
+    {id: 1, name:"Pablo"},
+    {id: 1, name:"Collasius"}
+];
 
 const ItemFormView = () => {
-    const [data,setData] = useState({
-        title: "soy un titulo",
-        descripcion:"soy la descripcion",
+    const [usuarios,setUsuarios] = useState(estadoInicial);
+    const [text, setText] = useState("");
+    const [buscar, setBuscar] = useState("");
+
+    const handleAdd = useCallback(() => {
+        const usuarioNuevo = {id: Date.now(), name: text};
+        const nuevosUsuarios = [...usuarios, usuarioNuevo];
+        setUsuarios(nuevosUsuarios);
+        const filtro = nuevosUsuarios.filter((usuario) => {
+            return usuario.name.toLowerCase().includes(buscar.toLowerCase())
+        });
+        setUsuarios(filtro);
+    }, [usuarios, text, buscar]);
+
+    const handleBuscar = () => {
+        setBuscar(text);
+    } 
+
+    useEffect(() => {
+        console.log("render")
     });
 
-    const Cambiador = (evento) =>{
-        const title = evento.target.value;
-        setData({...data,title});
-    };
+    const filtroDeUsuarios = useMemo(() => {
+        const filtro = usuarios.filter((usuario) => {
+            return usuario.name.toLowerCase().includes(buscar.toLowerCase())
+        });
+        return filtro;
+    },[buscar, usuarios]);
 
-
-    const Cambiador2 = (evento) =>{
-        const descripcion = evento.target.value;
-        setData({...data,descripcion});
-    };
-
-    const manejadorDeTecla = (evento) =>{
-        console.log("soy tecla",evento.keyCode)
-        if(evento.key === "a"){
-            evento.preventDefault();
-        }
-    }
-    
-
-
-  return (
-    <React.Fragment>
-        <form>
-            <div>
-                <InputComponent
-                data={data.title}
-                manejadorDeTecla ={manejadorDeTecla}
-                Cambiador={Cambiador}
-                ></InputComponent>
-            </div>
+    return (
+        <React.Fragment>
             <div>
                 <div>
-                    <label htmlFor=''>Descripcion: </label>
-                    <input type='text' value={data.descripcion} onChange={Cambiador2}/>
+                    <input type='text' value={text} onChange={(e) => setText(e.target.value)} />
+                </div>
+                <div>
+                    <button onClick={handleBuscar}>
+                        buscar
+                    </button>
+                    <button onClick={handleAdd}>
+                        add
+                    </button>
                 </div>
             </div>
-        </form>
-        <div>
-            <div>
-                <button>Registrar</button>
-            </div>
-        </div>
-    </React.Fragment>
-  )
+            <ListaDeUsuarios usuarios={filtroDeUsuarios}/>
+        </React.Fragment>
+    )
 }
 
 export default ItemFormView
