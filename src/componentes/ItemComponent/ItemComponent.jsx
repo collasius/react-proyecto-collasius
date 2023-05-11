@@ -6,7 +6,7 @@ import GeneralContext from "../../context/GeneralContext";
 const ItemComponent = (props) => {
   const { data, mostrarBtnRemover, mostrarBtnAgregar } = props;
   const { id: idProduct, title, image, description, price, stock } = data;
-  const [_stock, _setStock] = useState(stock || 10);
+  const [_stock, _setStock] = useState(stock || 0);
   const { addToCar, removeToCar } = useContext(GeneralContext);
 
   const handlerActionAdd = () => {

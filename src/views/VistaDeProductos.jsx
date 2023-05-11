@@ -1,15 +1,16 @@
 import './VistaDeProductos.css'
 import React , {Fragment, useState} from 'react'
 import ItemComponent from '../componentes/ItemComponent/ItemComponent'
-import useFetch from '../utils/useFetch'
-const BASE_URL ="https://fakestoreapi.com/products"
+import useFirestore from "../utils/useFirestore";
+
+const nameCollection ="items";
 
 
 
 const VistaDeProductos = (props) => {
 
   const [count, setCount] = useState(0);
-  const [data,loading] = useFetch(BASE_URL);
+  const [data,loading] = useFirestore({nameCollection})
 
   const handleUpdateCount = () => {
     setCount(count + 1);
@@ -28,3 +29,4 @@ const VistaDeProductos = (props) => {
 }
 
 export default VistaDeProductos
+  
