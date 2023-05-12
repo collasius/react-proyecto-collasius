@@ -6,7 +6,7 @@ import GeneralContext from "../../context/GeneralContext";
 const ItemComponent = (props) => {
   const { data, mostrarBtnRemover, mostrarBtnAgregar } = props;
   const { id: idProduct, title, image, description, price, stock } = data;
-  const [_stock, _setStock] = useState(stock || 0);
+  const [_stock, _setStock] = useState(stock || 10);
   const { addToCar, removeToCar } = useContext(GeneralContext);
 
   const handlerActionAdd = () => {
@@ -37,6 +37,7 @@ const ItemComponent = (props) => {
         <img className='imgProducto' src={image} alt={title}/>
         <div className="subCardProducto">
           <p className="precio">${price}</p>
+          {data.cantidad && <p>Cantidad: {data.cantidad}</p>}
           <p className="descripcion" >{showShortValue(description) }
             <NavLink to={`/products/detail/${idProduct}`}>
                 <button className="btnInfo" onClick={handlerActionAdd}>

@@ -1,16 +1,24 @@
 import './VistaDeProductos.css'
-import React , {Fragment, useState} from 'react'
+import React , {Fragment, useMemo, useState} from 'react'
 import ItemComponent from '../componentes/ItemComponent/ItemComponent'
 import useFirestore from "../utils/useFirestore";
+import { useParams } from 'react-router-dom';
 
 const nameCollection ="items";
 
 
-
 const VistaDeProductos = (props) => {
-
+    const { category } = useParams();
+  
+    const options = useMemo(() => {
+      const _optionwithFilters =  { nameCollection, filters: { where: ["category", "==", category] } };
+      const _optionWithOutFilters = { nameCollection };
+      return category ?_optionwithFilters : _optionWithOutFilters ;
+    }, [category]);
+  
+    const [data, loading] = useFirestore(options);
+  
   const [count, setCount] = useState(0);
-  const [data,loading] = useFirestore({nameCollection})
 
   const handleUpdateCount = () => {
     setCount(count + 1);
