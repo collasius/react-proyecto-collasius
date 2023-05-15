@@ -36,6 +36,7 @@ const DetalleDeCarrito = () => {
                 <ItemComponent
                   mostrarBtnRemover={true}
                   mostrarBtnAgregar={false}
+                  mostrarStock={false}
                   key={index}
                   data={producto}
                 />

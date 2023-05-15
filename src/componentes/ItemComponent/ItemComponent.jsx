@@ -4,10 +4,10 @@ import { NavLink } from 'react-router-dom';
 import GeneralContext from "../../context/GeneralContext";
 
 const ItemComponent = (props) => {
-  const { data, mostrarBtnRemover, mostrarBtnAgregar } = props;
+  const { data, mostrarBtnRemover, mostrarBtnAgregar, mostrarStock} = props;
   const { id: idProduct, title, image, description, price, stock } = data;
-  const [_stock, _setStock] = useState(stock || 10);
   const { addToCar, removeToCar } = useContext(GeneralContext);
+  const [_stock, _setStock] = useState(stock || 0);
 
   const handlerActionAdd = () => {
     if (_stock > 0) {
@@ -51,6 +51,18 @@ const ItemComponent = (props) => {
           ):( "")}
           {mostrarBtnRemover ? (
             <button className="btnQuitar" onClick={removerItem}>X</button>
+          ):( "")}
+
+          {mostrarStock ? (
+          <div className='stockAviso'>
+            {_stock === 0 ? (
+              <p className='sinStockAviso'>Sin Stock</p>
+            ) : _stock <= 5 ? (
+              <p>Ultimas {_stock} unidades</p>
+            ) : (
+              null
+            )}
+          </div>
           ):( "")}
 
         </div>
