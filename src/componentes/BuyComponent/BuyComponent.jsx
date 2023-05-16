@@ -17,7 +17,8 @@ const BuyComponent = () => {
   const _order = useMemo(() => {
     const items = car.map((item) => ({ item, amount: 1 }));
     const date = new Date().toLocaleDateString("es-AR");
-    return { items, date };
+    const total = _totalCompra;
+    return { items, date, total};
   }, [car]);
 
   const actionBuy = () => {

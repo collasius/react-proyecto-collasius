@@ -1,0 +1,21 @@
+.Footer{
+    height: 100px;
+    background-color: rgb(96, 96, 96);
+    text-align: center;
+}
+
+.administrador{
+    font-weight: 500;
+    color:white;
+    line-height: 100px;
+    transition-duration: 0.2s;
+
+}
+
+.customLink{
+    text-decoration: none;
+}
+
+.administrador:hover{
+    color:black
+}

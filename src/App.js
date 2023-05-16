@@ -6,8 +6,10 @@ import VistaDeProductos from './views/VistaDeProductos';
 import DetalleDeProductos from './views/DetalleDeProductos';
 import {routes} from "./routes";
 import GeneralContext from "./context/GeneralContext";
+import VistaAdministardor from './views/VistaAdministardor';
 import ItemFormView from './views/ItemFormView';
 import DetalleDeCarrito from './views/DetalleDeCarrito';
+import FooterComponent from './componentes/FooterComponent/FooterComponent';
 
 function App() {
   const [car, setCar] = useState([]);
@@ -37,7 +39,9 @@ function App() {
         <Route path='/eventos'element={<ItemFormView/>}></Route>
         <Route path={routes.Carrito}element={<DetalleDeCarrito/>}></Route>
         <Route path="/category/:category" element={<VistaDeProductos/>}></Route>
+        <Route path='/administrador' element={<VistaAdministardor/>}></Route>
       </Routes>
+    <FooterComponent/>
     </BrowserRouter>
   </GeneralContext.Provider>
 

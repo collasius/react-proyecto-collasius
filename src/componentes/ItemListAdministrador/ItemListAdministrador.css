@@ -1,0 +1,23 @@
+.ItemsListados{
+    margin: 50px;
+    background-color: rgb(173, 173, 173);
+    border-radius: 10px;
+    padding: 10px;
+}
+.ItemsListados2 div{
+    padding: 5px;
+}
+.ItemsListados3 div{
+    padding: 5px;
+}
+
+.detallelistadoordenes{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+.ItemsListados3{
+    background-color: rgb(255, 255, 255);
+    border-radius: 10px;
+    margin: 10px;
+}

@@ -1,6 +1,5 @@
 import React, { useMemo} from 'react'
 import Cartwidget from '../Cartwidget/Cartwidget'
-import NavbarItems from './NavbarItems/NavbarItems'
 import './Navbar.css'
 import Logo from'./z-logo-inicio.png'
 import { NavLink } from 'react-router-dom'
