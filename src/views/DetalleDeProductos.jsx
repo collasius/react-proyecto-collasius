@@ -1,11 +1,9 @@
 import './DetalleDeProductos.css'
 import React, {Fragment,useContext} from 'react'
 import { useParams } from 'react-router-dom'
-import useFetch from '../utils/useFetch'
 import GeneralContext from '../context/GeneralContext'
 import useFirestore from '../utils/useFirestore'
 
-const BASE_URL ="https://fakestoreapi.com/products"
 
 const nameCollection ="items";
 

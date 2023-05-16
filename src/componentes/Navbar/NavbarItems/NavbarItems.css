@@ -1,4 +1,4 @@
-span {
+.span-link {
     text-decoration: none;
     color: rgb(255, 255, 255);
     padding: 2px;
@@ -6,18 +6,18 @@ span {
     cursor: pointer;
 }
 
-span:hover{
+.span-link:hover{
     color:rgb(0, 0, 0);
 }
 
-li{
+.link-link{
     transition-duration: 0.2s;
     list-style-type: none;
     margin-left: 20px;
     margin-right: 20px;
 }
 
-li:hover{
+.link-link:hover{
     transform: scale(1.2);
 }
 

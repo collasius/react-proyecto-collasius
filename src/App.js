@@ -4,10 +4,6 @@ import './App.css';
 import Navbar from './componentes/Navbar/Navbar';
 import VistaDeProductos from './views/VistaDeProductos';
 import DetalleDeProductos from './views/DetalleDeProductos';
-import RopaParaHombres from './views/RopaParaHombres';
-import RopaParaMujeres from './views/RopaParaMujeres'
-import Joyeria from './views/Joyeria'
-import Electronica from './views/Electronica'
 import {routes} from "./routes";
 import GeneralContext from "./context/GeneralContext";
 import ItemFormView from './views/ItemFormView';
@@ -25,9 +21,12 @@ function App() {
     setCar(newArray)
   };
 
+  const cleanCar = () => {
+    setCar([]);
+  };
 
   return (
-  <GeneralContext.Provider value={{addToCar, car, removeToCar}}>
+  <GeneralContext.Provider value={{addToCar, car, removeToCar, cleanCar}}>
     <BrowserRouter>
       <Navbar />
 
@@ -35,13 +34,9 @@ function App() {
 
         <Route path={routes.index} element={<VistaDeProductos/>}/>
         <Route path="/products/detail/:idProduct" element={<DetalleDeProductos/>}/>
-        <Route path={routes.RopaParaHombres} element={<RopaParaHombres/>}/>
-        <Route path={routes.RopaParaMujeres} element={<RopaParaMujeres/>}/>
-        <Route path={routes.Joyeria} element={<Joyeria/>}/>
-        <Route path={routes.Electronica} element={<Electronica/>}/>
-
         <Route path='/eventos'element={<ItemFormView/>}></Route>
         <Route path={routes.Carrito}element={<DetalleDeCarrito/>}></Route>
+        <Route path="/category/:category" element={<VistaDeProductos/>}></Route>
       </Routes>
     </BrowserRouter>
   </GeneralContext.Provider>

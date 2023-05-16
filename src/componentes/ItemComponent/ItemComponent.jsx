@@ -40,7 +40,7 @@ const ItemComponent = (props) => {
           {data.cantidad && <p>Cantidad: {data.cantidad}</p>}
           <p className="descripcion" >{showShortValue(description) }
             <NavLink to={`/products/detail/${idProduct}`}>
-                <button className="btnInfo" onClick={handlerActionAdd}>
+                <button className="btnInfo">
                     + info
                 </button>
             </NavLink>

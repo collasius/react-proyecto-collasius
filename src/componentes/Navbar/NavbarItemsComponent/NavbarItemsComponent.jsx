@@ -9,8 +9,8 @@ const NavbarItemsComponent = (props) => {
 
   return (
     <ul >
-        {nameOption.map((nameItem,index) => {
-          return(<NavbarItems key={index} titulo = {nameItem} />)
+        {nameOption.map((item,index) => {
+          return(<NavbarItems key={index} titleOption = {item} />)
         })}
     </ul>
   )

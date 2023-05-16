@@ -3,10 +3,27 @@
 }
 
 .contenedorCarrito{
+    background-color: rgb(202, 202, 202);
+    width: 100%;
+    height: 100%;
+    text-align: center;
+}
+
+.contenedorItemsCarrito{
+    display: flex;
+    flex-direction: row;
+}
+
+.contenedorItemsCarritoProductos{
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
     align-items: center;
     justify-content: center;
-    background-color: rgb(202, 202, 202);
+}
+
+.resumenContenedor{
+    margin-top: 50px;
+    margin-right: 50px;
+    width: 40%;
 }
